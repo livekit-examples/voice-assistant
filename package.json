@@ -6,7 +6,10 @@
     "node": "24.x"
   },
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "concurrently -n \"web,agent\" -c \"cyan,green\" \"next dev --turbopack -p 3000\" \"py agent/agent.py dev\"",
+    "dev:frontend": "next dev --turbopack -p 3000",
+    "agent": "py agent/agent.py dev",
+    "agent:install": "py -m pip install -r agent/requirements.txt",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -67,6 +70,7 @@
     "@types/node": "^24.0.0",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "concurrently": "^10.0.5",
     "eslint": "^9",
     "eslint-config-next": "15.5.2",
     "eslint-config-prettier": "^10.1.5",

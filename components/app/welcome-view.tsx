@@ -33,17 +33,48 @@ export const WelcomeView = ({
       <section className="bg-background flex flex-col items-center justify-center text-center">
         <WelcomeImage />
 
-        <p className="text-foreground max-w-prose pt-1 leading-6 font-medium">
-          Chat live with your voice AI agent
+        <p className="text-foreground max-w-prose pt-1 text-lg leading-6 font-semibold">
+          AI Voice Assistant with Laptop Control
+        </p>
+        <p className="text-muted-foreground mt-1 max-w-md text-xs">
+          Speak naturally to launch apps, browse websites, dictate notes, adjust volume, and control your laptop hands-free.
         </p>
 
         <Button
           size="lg"
           onClick={onStartCall}
-          className="mt-6 w-64 rounded-full font-mono text-xs font-bold tracking-wider uppercase"
+          className="mt-6 w-64 rounded-full font-mono text-xs font-bold tracking-wider uppercase transition-all duration-300 hover:scale-105"
         >
           {startButtonText}
         </Button>
+
+        {/* Voice Command Suggestions */}
+        <div className="mt-8 flex max-w-xl flex-wrap items-center justify-center gap-2 px-4">
+          <span className="rounded-full border border-border/60 bg-muted/40 px-3 py-1 text-[11px] text-muted-foreground font-mono">
+            &quot;Create a folder on my desktop called Projects&quot;
+          </span>
+          <span className="rounded-full border border-border/60 bg-muted/40 px-3 py-1 text-[11px] text-muted-foreground font-mono">
+            &quot;Check free space on C drive&quot;
+          </span>
+          <span className="rounded-full border border-border/60 bg-muted/40 px-3 py-1 text-[11px] text-muted-foreground font-mono">
+            &quot;Show my IP address&quot;
+          </span>
+          <span className="rounded-full border border-border/60 bg-muted/40 px-3 py-1 text-[11px] text-muted-foreground font-mono">
+            &quot;Open Notepad and write my ideas&quot;
+          </span>
+          <span className="rounded-full border border-border/60 bg-muted/40 px-3 py-1 text-[11px] text-muted-foreground font-mono">
+            &quot;Open YouTube&quot;
+          </span>
+          <span className="rounded-full border border-border/60 bg-muted/40 px-3 py-1 text-[11px] text-muted-foreground font-mono">
+            &quot;Take a screenshot&quot;
+          </span>
+          <span className="rounded-full border border-border/60 bg-muted/40 px-3 py-1 text-[11px] text-muted-foreground font-mono">
+            &quot;Turn volume up&quot;
+          </span>
+          <span className="rounded-full border border-border/60 bg-muted/40 px-3 py-1 text-[11px] text-muted-foreground font-mono">
+            &quot;What is my battery level?&quot;
+          </span>
+        </div>
       </section>
 
       <div className="fixed bottom-5 left-0 flex w-full items-center justify-center">
