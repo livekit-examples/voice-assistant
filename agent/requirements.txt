@@ -1,0 +1,6 @@
+livekit-agents>=1.8.0
+livekit-plugins-groq>=1.8.0
+livekit-plugins-silero>=1.8.0
+livekit-plugins-openai>=1.8.0
+edge-tts>=7.0.0
+python-dotenv>=1.0.0
