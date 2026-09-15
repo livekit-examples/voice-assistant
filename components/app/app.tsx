@@ -21,11 +21,20 @@ function AppSetup() {
 }
 
 interface AppProps {
+  tokenServerId?: string;
+  tokenEndpoint: string;
   agentName?: string;
+  isVideoInputSupported: boolean;
 }
 
-export function App({ agentName }: AppProps) {
-  const tokenSource = useMemo(() => TokenSource.endpoint('/api/token'), []);
+export function App({ tokenServerId, tokenEndpoint, agentName, isVideoInputSupported }: AppProps) {
+  const tokenSource = useMemo(
+    () =>
+      tokenServerId
+        ? TokenSource.developmentTokenServer(tokenServerId)
+        : TokenSource.endpoint(tokenEndpoint),
+    [tokenServerId, tokenEndpoint]
+  );
 
   const session = useSession(tokenSource, agentName ? { agentName } : undefined);
 
@@ -33,7 +42,7 @@ export function App({ agentName }: AppProps) {
     <AgentSessionProvider session={session}>
       <AppSetup />
       <main className="grid h-svh grid-cols-1 place-content-center">
-        <ViewController />
+        <ViewController isVideoInputSupported={isVideoInputSupported} />
       </main>
       <StartAudioButton label="Start Audio" />
       <Toaster
